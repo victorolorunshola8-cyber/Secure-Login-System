@@ -1,0 +1,72 @@
+DAY 8 – TESTING & DEBUGGING REPORT
+Project: Secure Login System with Role-Based Access Control
+
+1. USER REGISTRATION TESTING
+Test Case: Register new user
+Input: Valid username, email, password, role
+Expected Result: User account created successfully
+Actual Result: Registration successful
+Status: PASS
+
+Test Case: Duplicate email registration
+Input: Existing email
+Expected Result: Registration should fail
+Actual Result: System prevented duplicate registration
+Status: PASS
+
+2. USER LOGIN TESTING
+Test Case: Correct login
+Input: Valid email and password
+Expected Result: User logged in successfully
+Actual Result: Login successful
+Status: PASS
+
+Test Case: Incorrect password
+Input: Valid email, wrong password
+Expected Result: Error message displayed
+Actual Result: Invalid credentials message shown
+Status: PASS
+
+3. ACCOUNT LOCKOUT TESTING
+Test Case: Multiple failed login attempts
+Input: Wrong password entered 3 times
+Expected Result: Account locked
+Actual Result: Account locked after 3 attempts
+Status: PASS
+
+Test Case: Login after account lock
+Input: Correct password
+Expected Result: Login denied
+Actual Result: Access denied
+Status: PASS
+
+4. ROLE-BASED ACCESS CONTROL (RBAC)
+Test Case: Admin dashboard access
+Input: Admin user login
+Expected Result: Admin dashboard accessible
+Actual Result: Access granted
+Status: PASS
+
+Test Case: User accessing admin dashboard
+Input: Normal user accessing /admin
+Expected Result: Access denied
+Actual Result: Access denied
+Status: PASS
+
+5. SESSION MANAGEMENT
+Test Case: Logout
+Input: User clicks logout
+Expected Result: Session cleared
+Actual Result: User logged out successfully
+Status: PASS
+
+Test Case: Unauthorized access
+Input: Access dashboard without login
+Expected Result: Redirect to login
+Actual Result: Redirected to login page
+Status: PASS
+
+6. OVERALL RESULT
+All system features were tested successfully.
+No critical bugs were found during testing.
+The system is secure, functional, and ready for deployment.
