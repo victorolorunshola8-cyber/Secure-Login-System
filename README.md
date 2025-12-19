@@ -1,97 +1,118 @@
-# Secure Login System with Role-Based Access Control
+Secure Login System with Role-Based Access Control
+Project Overview
 
-## Project Overview
 This project is a secure web-based authentication system developed using Flask (Python).
 It implements secure user registration, login, role-based access control (RBAC), and
 multiple security mechanisms to protect against common attacks.
 
 The system was developed as part of a Cybersecurity Internship project by Vault-Tec Security.
 
+Features
 
-## Features
-- Secure user registration with password hashing (bcrypt)
-- Secure login with credential verification
-- Role-Based Access Control (Admin & User)
-- Account lockout after multiple failed login attempts
-- Session management and logout
-- SQL Injection protection using ORM (SQLAlchemy)
-- Input validation and access control
+Secure user registration with password hashing (bcrypt)
 
-## Technologies Used
-- Python
-- Flask
-- Flask-SQLAlchemy
-- bcrypt
-- HTML & CSS
-- SQLite
+Secure login with credential verification
 
+Login CAPTCHA to prevent automated and brute-force attacks
 
-##  Project Structure
+Role-Based Access Control (Admin & User)
+
+Account lockout after multiple failed login attempts
+
+Session management and logout
+
+SQL Injection protection using ORM (SQLAlchemy)
+
+Input validation and access control
+
+Technologies Used
+
+Python
+
+Flask
+
+Flask-SQLAlchemy
+
+bcrypt
+
+HTML & CSS
+
+SQLite
+
+Project Structure
 Secure-Login-System/
 │
 ├── app.py
 ├── init_db.py
 ├── database.db
 ├── templates/
-│ ├── login.html
-│ └── register.html
+│   ├── login.html
+│   └── register.html
 ├── static/
-│ └── style.css
+│   └── style.css
 ├── screenshots/
 ├── testing_report.txt
 └── README.md
 
-
-
-## Installation & Setup
-
-1 Clone the Repository
-bash
+Installation & Setup
+1. Clone the Repository
 git clone https://github.com/victorolorunshola8-cyber/Secure-Login-System.git
 cd Secure-Login-System
 
-2 Install Dependencies
+2. Install Dependencies
 pip install flask flask_sqlalchemy bcrypt
 
-3 Initialize Database
+3. Initialize Database
 python init_db.py
 
-4 Run the Application
+4. Run the Application
 python app.py
 
 
 Open your browser and visit:
 
-http://127.0.0.1:5000 
+http://127.0.0.1:5000
 
-### Security Implementation
-# Password Hashing
+Security Implementation
+Password Hashing
 
-Passwords are hashed using bcrypt before storage to ensure they are not stored in plaintext.
+Passwords are hashed using bcrypt before storage to ensure they are never stored in plaintext.
 
-# Account Lockout
+Login CAPTCHA
 
-Accounts are locked after three failed login attempts to prevent brute-force attacks.
+A CAPTCHA challenge is implemented during login to:
 
- Role-Based Access Control
+Prevent automated login attempts
+
+Reduce brute-force attacks
+
+Add an extra layer of human verification
+
+Account Lockout
+
+User accounts are automatically locked after three failed login attempts to protect against brute-force attacks.
+
+Role-Based Access Control (RBAC)
 
 Admin users can access the admin dashboard
 
-User accounts are restricted from admin functionalities
+Regular users are restricted from admin-only functionalities
 
-# SQL Injection Prevention
+SQL Injection Prevention
 
-The application uses SQLAlchemy ORM, which protects against SQL injection attacks.
+The application uses SQLAlchemy ORM, which safely handles database queries and protects against SQL injection attacks.
 
-# Testing
+Testing
 
-All system features were tested, including:
+All system features were thoroughly tested, including:
 
-Registration and login
+User registration
 
-Invalid login attempts
+Login with correct and incorrect credentials
 
-Account lockout
+CAPTCHA validation during login
+
+Account lockout after failed attempts
 
 Role-based access restrictions
 
@@ -99,21 +120,21 @@ Session handling and logout
 
 Detailed test results are available in testing_report.txt.
 
-### Screenshots
+Screenshots
 
 Screenshots demonstrating system functionality are included in the screenshots/ folder:
 
-# Registration success
+Registration success
 
-# Login success
+Login with CAPTCHA
 
-# Account locked message
+Account locked message
 
-# Admin dashboard
+Admin dashboard
 
-# Access denied message
+Access denied message
 
-### Author
+Author
 
 Name: Olorunshola Peter Victor
 Role: Cybersecurity Intern
