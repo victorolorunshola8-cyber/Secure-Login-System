@@ -1,72 +1,207 @@
-DAY 8 – TESTING & DEBUGGING REPORT
-Project: Secure Login System with Role-Based Access Control
+SECURE LOGIN SYSTEM - TESTING REPORT
 
-1. USER REGISTRATION TESTING
-Test Case: Register new user
-Input: Valid username, email, password, role
-Expected Result: User account created successfully
-Actual Result: Registration successful
+Project Title: Secure Login System with Role-Based Access Control
+Author: Olorunshola Peter Victor
+Role: Cybersecurity Intern
+Organization: Vault-Tec Security
+Technology: Flask (Python), SQLite, bcrypt
+Date: December 2025
+
+--------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------
+This report documents the testing process carried out on the Secure Login System.
+The objective was to verify that all functionalities work as expected and that
+security mechanisms properly protect the application against common attacks.
+
+--------------------------------------------------
+2. TEST ENVIRONMENT
+--------------------------------------------------
+Operating System: Windows
+Browser: Google Chrome
+Backend: Flask (Python)
+Database: SQLite
+Tools: VS Code, PowerShell, GitHub
+
+--------------------------------------------------
+3. TEST CASES AND RESULTS
+--------------------------------------------------
+
+3.1 User Registration
+Test Description:
+Register a new user with valid username, email, password, and role.
+
+Expected Result:
+User should be registered successfully and stored securely in the database.
+
+Actual Result:
+User registered successfully.
+
 Status: PASS
 
-Test Case: Duplicate email registration
-Input: Existing email
-Expected Result: Registration should fail
-Actual Result: System prevented duplicate registration
+--------------------------------------------------
+
+3.2 Duplicate Registration
+Test Description:
+Attempt to register with an email that already exists.
+
+Expected Result:
+System should reject the registration and display an error message.
+
+Actual Result:
+Duplicate registration was prevented.
+
 Status: PASS
 
-2. USER LOGIN TESTING
-Test Case: Correct login
-Input: Valid email and password
-Expected Result: User logged in successfully
-Actual Result: Login successful
+--------------------------------------------------
+
+3.3 Password Hashing
+Test Description:
+Verify that passwords are not stored in plaintext in the database.
+
+Expected Result:
+Passwords should be stored as hashed values using bcrypt.
+
+Actual Result:
+Passwords were stored as hashed values.
+
 Status: PASS
 
-Test Case: Incorrect password
-Input: Valid email, wrong password
-Expected Result: Error message displayed
-Actual Result: Invalid credentials message shown
+--------------------------------------------------
+
+3.4 User Login (Valid Credentials)
+Test Description:
+Login using correct email and password.
+
+Expected Result:
+User should be authenticated and redirected to the appropriate dashboard.
+
+Actual Result:
+Login successful and dashboard loaded.
+
 Status: PASS
 
-3. ACCOUNT LOCKOUT TESTING
-Test Case: Multiple failed login attempts
-Input: Wrong password entered 3 times
-Expected Result: Account locked
-Actual Result: Account locked after 3 attempts
+--------------------------------------------------
+
+3.5 User Login (Invalid Credentials)
+Test Description:
+Login using incorrect password.
+
+Expected Result:
+System should deny access and display an error message.
+
+Actual Result:
+Access denied and error message displayed.
+
 Status: PASS
 
-Test Case: Login after account lock
-Input: Correct password
-Expected Result: Login denied
-Actual Result: Access denied
+--------------------------------------------------
+
+3.6 Login CAPTCHA Validation
+Test Description:
+Attempt to login with an incorrect CAPTCHA answer.
+
+Expected Result:
+Login should fail and display CAPTCHA error.
+
+Actual Result:
+CAPTCHA validation failed and user was not logged in.
+
 Status: PASS
 
-4. ROLE-BASED ACCESS CONTROL (RBAC)
-Test Case: Admin dashboard access
-Input: Admin user login
-Expected Result: Admin dashboard accessible
-Actual Result: Access granted
+--------------------------------------------------
+
+3.7 Login CAPTCHA (Correct Answer)
+Test Description:
+Login with correct credentials and correct CAPTCHA.
+
+Expected Result:
+Login should be successful.
+
+Actual Result:
+User logged in successfully.
+
 Status: PASS
 
-Test Case: User accessing admin dashboard
-Input: Normal user accessing /admin
-Expected Result: Access denied
-Actual Result: Access denied
+--------------------------------------------------
+
+3.8 Account Lockout
+Test Description:
+Attempt login with wrong password three times.
+
+Expected Result:
+Account should be locked after three failed attempts.
+
+Actual Result:
+Account locked and further login attempts blocked.
+
 Status: PASS
 
-5. SESSION MANAGEMENT
-Test Case: Logout
-Input: User clicks logout
-Expected Result: Session cleared
-Actual Result: User logged out successfully
+--------------------------------------------------
+
+3.9 Role-Based Access Control (Admin)
+Test Description:
+Login as Admin user and access admin dashboard.
+
+Expected Result:
+Admin should access admin dashboard.
+
+Actual Result:
+Admin dashboard accessed successfully.
+
 Status: PASS
 
-Test Case: Unauthorized access
-Input: Access dashboard without login
-Expected Result: Redirect to login
-Actual Result: Redirected to login page
+--------------------------------------------------
+
+3.10 Role-Based Access Control (User)
+Test Description:
+Login as regular user and attempt to access admin page.
+
+Expected Result:
+Access should be denied.
+
+Actual Result:
+Access denied message displayed.
+
 Status: PASS
 
-6. OVERALL RESULT
-All system features were tested successfully.
-No critical bugs were found during testing.
-The system is secure, functional, and ready for deployment.
+--------------------------------------------------
+
+3.11 Session Management & Logout
+Test Description:
+Logout after successful login.
+
+Expected Result:
+Session should be cleared and user redirected to login page.
+
+Actual Result:
+Logout successful and session cleared.
+
+Status: PASS
+
+--------------------------------------------------
+4. SECURITY TESTING
+--------------------------------------------------
+The following security mechanisms were verified:
+
+- Password hashing using bcrypt
+- CAPTCHA to prevent automated login attempts
+- Account lockout to mitigate brute-force attacks
+- SQL injection prevention using SQLAlchemy ORM
+- Role-based access control enforcement
+- Session handling to prevent unauthorized access
+
+All mechanisms performed as expected.
+
+--------------------------------------------------
+5. CONCLUSION
+--------------------------------------------------
+The Secure Login System was tested thoroughly and all major features and security
+controls functioned correctly. The application meets the project requirements
+and demonstrates secure software development practices.
+
+The system is considered stable and ready for final submission.
+
+--------------------------------------------------
+END OF REPORT
+--------------------------------------------------
